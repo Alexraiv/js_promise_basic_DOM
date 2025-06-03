@@ -30,15 +30,7 @@ const promise2 = new Promise((resolve, reject) => {
   }, 3000);
 });
 
-promise1
-  .then(() => {
-    createMessageSuccess();
-  })
-  .catch(() => {
-    createMessageError();
-  });
-
-promise2
+Promise.race([promise1, promise2])
   .then(() => {
     createMessageSuccess();
   })
